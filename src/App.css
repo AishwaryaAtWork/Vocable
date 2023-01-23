@@ -43,13 +43,13 @@ html{
     flex: 33%;
     display: flex;
     flex-direction: row;
-    margin: 0.5rem;
+    margin: 0.1rem;
 }
 .letter {
     flex: 33%;
     height: 85%;
     border: 0.1rem solid grey;
-    margin: 0.5rem;
+    margin: 0.3rem;
     padding: 0 0.7rem;
     display: grid;
     place-items: center;
@@ -84,4 +84,13 @@ html{
 }
 #big{
     width: 8rem;
+}
+#correct {
+    background-color: #528d4e;
+}
+#almost {
+    background-color: #b49f39;
+}  
+#error {
+    background-color: #3a393c;
 }
