@@ -57,7 +57,16 @@ html{
     font-weight: bolder;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-  }
+}
+#correct {
+    background-color: #528d4e;
+}
+#almost {
+    background-color: #b49f39;
+}  
+#error {
+    background-color: #3a393c;
+}
 .keyboard{
     width: 50rem;
     height: 10rem;
@@ -85,12 +94,6 @@ html{
 #big{
     width: 8rem;
 }
-#correct {
-    background-color: #528d4e;
-}
-#almost {
-    background-color: #b49f39;
-}  
-#error {
-    background-color: #3a393c;
+#disabled{
+    background: #3a393c;
 }
