@@ -4,6 +4,7 @@ import Keyboard from './components/Keyboard';
 import { boardDefault, generateWordSet } from '../src/components/Words';
 import {createContext,useState} from 'react';
 import { useEffect } from 'react';
+import GameOver from './components/GameOver';
 
 export const AppContext = createContext();
 
@@ -11,11 +12,14 @@ function App() {
   const [board, setBoard]= useState(boardDefault);
   const [currAttempt, setCurrAttempt]= useState({attempt :0, letterPos :0});
   const [wordSet, setWordSet]= useState(new Set());
+  const [correctWord, setCorrectWord]= useState("");
   const [disabledLetters, setDisabledLetters]= useState([]);
-  const correctWord= "RIGHT";
+  const [gameOver, setGameOver]= useState({gameOver: false, guessedWord: false});
+
   useEffect(()=>{
     generateWordSet().then((words)=>{
       setWordSet(words.wordSet);
+      setCorrectWord(words.todaysWord);
     });
   },[]);
   
@@ -44,11 +48,12 @@ function App() {
     if(wordSet.has(currWord.toLowerCase())){
       setCurrAttempt({attempt: currAttempt.attempt+1, letterPos: 0});
     }
-    else{
-      alert("not found");
-    }
     if(currWord === correctWord){
-      alert("Game end")
+      setGameOver({gameOver: true, guessedWord: true});
+      return;
+    }
+    if(currAttempt.attempt===5){
+      setGameOver({gameOver: true, guessedWord: false});
     }
   };
   return (
@@ -56,10 +61,11 @@ function App() {
       <nav>
         <h1>Vocable</h1>
       </nav>
-      <AppContext.Provider value={{board, setBoard, currAttempt, setCurrAttempt, onSelectLetter, onDelete, onEnter, correctWord, disabledLetters, setDisabledLetters}}>
+      <AppContext.Provider value={{board, setBoard, currAttempt, setCurrAttempt, onSelectLetter, 
+        onDelete, onEnter, correctWord, disabledLetters, setDisabledLetters, gameOver}}>
         <div className="game">
           <Board/>
-          <Keyboard/>
+          {gameOver.gameOver ? <GameOver/> :<Keyboard/>}
         </div>
       </AppContext.Provider>
     </div>
