@@ -5,6 +5,7 @@ import { boardDefault, generateWordSet } from '../src/components/Words';
 import {createContext,useState} from 'react';
 import { useEffect } from 'react';
 import GameOver from './components/GameOver';
+import Header from './components/Header';
 
 export const AppContext = createContext();
 
@@ -58,9 +59,7 @@ function App() {
   };
   return (
     <div className="App">
-      <nav>
-        <h1>Vocable</h1>
-      </nav>
+      <Header/>
       <AppContext.Provider value={{board, setBoard, currAttempt, setCurrAttempt, onSelectLetter, 
         onDelete, onEnter, correctWord, disabledLetters, setDisabledLetters, gameOver}}>
         <div className="game">

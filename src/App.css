@@ -8,33 +8,60 @@ html{
 .App{
     text-align: center;
     background: #121212;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     color: #fff;
 }
-.App nav{
-    height: 5rem;
+.header{
+    height: 4rem;
     width: 100%;
-    border-bottom: 0.1rem solid gray;
-    display: grid;
-    place-items: center;
-}
-.App nav h1{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.3rem solid rgb(228, 215, 215);
     font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+    background: #b49f39;
+}
+.logo{
+    font-size: 3.2rem;
+    padding: 0 1.6rem;
+    text-align: left;
+    font-weight: 600;
+}
+.rules{
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+    text-align: right;
+    font-weight: 700;
+    cursor: pointer;
+}
+.rulesList{
+    width: 25vw;
+    background: gray;
+    margin-top: 1.3rem;
+    padding: 1rem;
     color: #fff;
-    font-size: 4rem;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+    line-height: 1.6;
+    font-weight: 100;
+    text-align: justify;
+    z-index: 100;
+}
+.rulesList li{
+    list-style-type: none;
 }
 .game{
-    height: calc(100vh - 10rem);
+    height: 75vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1rem;
+    margin-top: 2rem;
 }
 .board{
     width: 25rem;
-    height: 30rem;
+    height: 80rem;
     border: 0.1rem solid black;
     display: flex;
     flex-direction: column;
@@ -68,8 +95,8 @@ html{
     background-color: #3a393c;
 }
 .keyboard{
-    width: 50rem;
-    height: 10rem;
+    width: 93%;
+    height: 25%;
     margin-top: 3rem;
 }
 .keyboard .line1,.keyboard .line2,.keyboard .line3{

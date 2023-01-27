@@ -45,14 +45,14 @@ function Keyboard() {
     <>
       <div className="keyboard" onKeyDown={handleKeyboard}>
             <div className="line1">
-              {KEY1.map((k)=>(<Key keyVal={k} disabled={disabledLetters.includes(k)}/>))}
+              {KEY1.map((k)=>(<Key key={k} keyVal={k} disabled={disabledLetters.includes(k)}/>))}
               </div>
             <div className="line2">
-              {KEY2.map((k)=>(<Key keyVal={k} disabled={disabledLetters.includes(k)}/>))}
+              {KEY2.map((k)=>(<Key key={k} keyVal={k} disabled={disabledLetters.includes(k)}/>))}
             </div>
             <div className="line3">
               <Key keyVal={"ENTER"} bigKey/>
-              {KEY3.map((k)=>(<Key keyVal={k} disabled={disabledLetters.includes(k)}/>))}
+              {KEY3.map((k)=>(<Key key={k} keyVal={k} disabled={disabledLetters.includes(k)}/>))}
               <Key keyVal={"DELETE"} bigKey/>
             </div>
       </div>
